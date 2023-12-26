@@ -1,12 +1,21 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"log"
+)
 
 func main(){
     str := "the quick brown fox jumped over the lazy white dog"
     pt := newPieceTable(str)
-    pt.add("went to the park and ", 19)
-    pt.add(".", 44)
-    pt.delete(41, 6)
+    if err := pt.add("went to the park and ", 20);err!=nil{
+        log.Fatal(err)
+    }
+    if err := pt.add(".", 71);err!=nil{
+        log.Fatal(err)
+    }
+    if err := pt.delete(41, 7);err!=nil{
+        log.Fatal(err)
+    }
     fmt.Println(pt.toString())
 }
